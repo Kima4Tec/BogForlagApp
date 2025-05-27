@@ -1,0 +1,45 @@
+<main class="page-content">
+
+    <h1>Redigér kunstnere</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fornavn</th>
+                <th>Efternavn</th>
+                <th>Handlinger</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let artist of artists">
+                <td>{{ artist.artistId }}</td>
+                <td>{{ artist.firstName }}</td>
+                <td>{{ artist.lastName }}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm me-2" (click)="editArtist(artist)">Rediger</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteArtist(artist.artistId)">Slet</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Vis redigeringsformular hvis en forfatter er valgt -->
+    <div *ngIf="selectedArtist" class="mb-4">
+        <h2>Rediger forfatter (ID: {{ selectedArtist.artistId }})</h2>
+        <form (ngSubmit)="updateArtist()">
+            <div class="mb-3">
+                <label for="editFirstName" class="form-label">Fornavn</label>
+                <input id="editFirstName" class="form-control" [(ngModel)]="editFirstName" name="editFirstName" />
+                <div class="text-danger" *ngFor="let err of editErrors['FirstName']">{{ err }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="editLastName" class="form-label">Efternavn</label>
+                <input id="editLastName" class="form-control" [(ngModel)]="editLastName" name="editLastName" />
+                <div class="text-danger" *ngFor="let err of editErrors['LastName']">{{ err }}</div>
+            </div>
+            <button class="btn btn-success me-2" type="submit">Gem ændringer</button>
+            <button class="btn btn-secondary" type="button" (click)="cancelEdit()">Annuller</button>
+        </form>
+    </div>
+</main>

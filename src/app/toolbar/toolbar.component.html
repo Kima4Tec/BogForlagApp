@@ -1,0 +1,41 @@
+<main class="toolbar">
+    <header>
+        <nav>
+            <div class="title">Forlag Semikolon</div>
+            <div class="links">
+            </div>
+            <ul>
+                <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                </li>
+                <li><a routerLink="/getauthor" routerLinkActive="active">Forlagets Forfattere</a></li>
+                <li class="dropdown" *ngIf="authService.isLoggedIn()">
+                    <a href="#" class="dropbtn">Bog Administration</a>
+                    <div class="dropdown-content">
+                        <a routerLink="/createauthor">Opret Forfatter</a>
+                        <a routerLink="/editauthor">Rediger Forfatter</a>
+                        <a routerLink="/createartist">Opret Kunstner</a>
+                        <a routerLink="/editartist">Rediger Kunstner</a>
+                        <a routerLink="/createcover">Opret Bogomslag</a>
+                        <a routerLink="/editcover">Rediger Bogomslag</a>
+                        <a routerLink="/createbook">Opret Bog</a>
+                        <a routerLink="/editbook">Rediger Bog</a>
+                    </div>
+                </li>
+                <li class="dropdown" *ngIf="authService.isLoggedIn()">
+                    <a href="#" class="dropbtn">Administration</a>
+                    <div class="dropdown-content">
+                        <a routerLink="/register">Ny bruger</a>
+                    </div>
+                </li>
+                <li><a (click)="logout()" *ngIf="authService.isLoggedIn()">Logout</a></li>
+                <li><a routerLink="/login" *ngIf="!authService.isLoggedIn()" routerLinkActive="active">Admin</a></li>
+            </ul>
+        </nav>
+        <div class="searchWrapper">
+            <input type="search" [(ngModel)]="query" (keyup.enter)="searchBooks()" class="searchQuery"
+                placeholder="Søg på titel eller forfatter" />
+            <button (click)="searchBooks()" class="searchButton">Søg</button>
+        </div>
+
+    </header>
+</main>

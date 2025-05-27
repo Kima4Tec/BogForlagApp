@@ -1,0 +1,23 @@
+<main class="page-content">
+
+    <div class="register-form">
+        <h2 style="padding: 10px;">Registrering af nye brugere</h2>
+        <form (ngSubmit)="register()">
+            <div class="form-group col-2 p-3">
+                <!-- <label style="padding: 10px;" for="userName">Brugernavn</label> -->
+                <input type="text" class="form-control" [(ngModel)]="userName" name="userName" placeholder="Brugernavn"
+                    required />
+            </div>
+
+            <div class="form-group col-2 p-3">
+                <!-- <label style="padding: 10px;" for="password">Password</label> -->
+                <input type="password" class="form-control" [(ngModel)]="password" name="password"
+                    placeholder="Password" required />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Registrer</button>
+        </form>
+        <p>{{ message }}</p>
+    </div>
+
+</main>

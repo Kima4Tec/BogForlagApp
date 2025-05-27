@@ -1,0 +1,38 @@
+<main class="page-content">
+    <div class="container mt-5">
+        <h2 class="text mb-4">Opret kunstner</h2>
+        <div *ngIf="succesMessage" class="col-md-4 alert alert-success" role="alert"> {{succesMessage}}</div>
+        <div class="row">
+            <div class="col-md-4">
+                <form #authorForm="ngForm" (ngSubmit)="createArtist()">
+
+                    <!-- FirstName -->
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">Fornavn</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Fornavn"
+                            [(ngModel)]="firstName" required />
+                        <div *ngIf="errors['FirstName']" class="text-danger mt-1">
+                            <small *ngFor="let err of errors['FirstName']">{{ err }}</small><br />
+                        </div>
+                    </div>
+
+                    <!-- LastName -->
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Efternavn</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Efternavn"
+                            [(ngModel)]="lastName" required />
+                        <div *ngIf="errors['LastName']" class="text-danger mt-1">
+                            <small *ngFor="let err of errors['LastName']">{{ err }}</small><br />
+                        </div>
+                    </div>
+
+                    <!-- Submit-button -->
+                    <button class="btn btn-primary w-100" type="submit">
+                        Opret
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</main>
