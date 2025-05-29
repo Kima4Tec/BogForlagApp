@@ -19,8 +19,8 @@ export class CreateBookComponent implements OnInit {
   newBook: Book = {
     bookId: 0,
     title: '',
-    publishYear: this.currentYear,
-    basePrice: 0,
+    publishDate: this.currentYear,
+    price: 0,
     authorId: 0,
   }
 
@@ -42,7 +42,7 @@ export class CreateBookComponent implements OnInit {
 
   createBook() {
     this.bookService.createBook(this.newBook).subscribe(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/books']);
     });
   }
 }

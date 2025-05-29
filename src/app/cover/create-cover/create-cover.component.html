@@ -1,21 +1,38 @@
-<main class="page-content">
+<form (ngSubmit)="submitCover()" #coverForm="ngForm" class="container mt-4">
 
-    <p>Cover modellen ser sådan ud:</p>
+    <div class="mb-3">
+        <label for="designIdeas" class="form-label">Designidéer/Omslagstitel</label>
+        <textarea id="designIdeas" [(ngModel)]="cover.designIdeas" name="designIdeas" class="form-control"
+            required></textarea>
+    </div>
 
-    <pre><code>
-public int CoverId &#123; get; set; &#125;
+    <div class="mb-3">
+        <label>
+            <input type="checkbox" [(ngModel)]="cover.digitalOnly" name="digitalOnly" />
+            Kun digitalt?
+        </label>
+    </div>
 
-public string DesignIdeas &#123; get; set; &#125; = string.Empty;
+    <div class="mb-3">
+        <label for="book">Vælg bog</label>
+        <select id="book" [(ngModel)]="cover.bookid" name="bookid" class="form-control" required>
+            <option value="" disabled selected>-- Vælg bog --</option>
+            <option *ngFor="let book of books" [value]="book.bookId">
+                {{ book.title }} ({{ book.publishDate }})
+            </option>
+        </select>
+    </div>
 
-public bool DigitalOnly &#123; get; set; &#125;
+    <div class="mb-3">
+        <label for="artistIds">Vælg eksisterende kunstnere</label>
+        <select id="artistIds" [(ngModel)]="cover.artistIds" name="artistIds" class="form-control" multiple required>
+            <option *ngFor="let artist of artists" [value]="artist.artistId">
+                {{ artist.firstName }} {{ artist.lastName }}
+            </option>
+        </select>
+    </div>
 
-public int BookId &#123; get; set; &#125;
-
-public Book Book &#123; get; set; &#125;
-
-public List&lt;Artist&gt; Artists &#123; get; set; &#125; = new List&lt;Artist&gt;();
-</code></pre>
-
-    <p>Et cover skal være tilknyttet en bog. Man kan tilføje flere kunstnere til et cover.</p>
-
-</main>
+    <button class="btn btn-primary mt-3" [disabled]="coverForm.invalid">
+        Opret Cover
+    </button>
+</form>

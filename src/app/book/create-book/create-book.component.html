@@ -12,15 +12,15 @@
         </select>
     </div>
     <div class="mb-3 col-4">
-        <label for="publishYear" class="form-label">Udgivelsesår</label>
-        <input id="publishYear" type="number" class="form-control" [(ngModel)]="newBook.publishYear" name="publishYear"
+        <label for="publishDate" class="form-label">Udgivelsesår</label>
+        <input id="publishDate" type="number" class="form-control" [(ngModel)]="newBook.publishDate" name="publishDate"
             [max]="currentYear" min="1000" step="1" required />
     </div>
 
     <div class="mb-3 col-4">
-        <label for="basePrice" class="form-label">Basispris</label>
-        <input id="basePrice" type="number" class="form-control" [(ngModel)]="newBook.basePrice" name="basePrice"
-            min="0" step="5" required />
+        <label for="price" class="form-label">Basispris</label>
+        <input id="price" type="number" class="form-control" [(ngModel)]="newBook.price" name="price" min="0" step="5"
+            required />
     </div>
 
     <button type="submit" class="btn btn-primary d-block" [disabled]="bookForm.invalid">

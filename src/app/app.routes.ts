@@ -11,6 +11,8 @@ import { EditCoverComponent } from './cover/edit-cover/edit-cover.component';
 import { CreateBookComponent } from './book/create-book/create-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { GetAuthorComponent } from './author/get-author/get-author.component';
+import { GetBooksComponent } from './book/get-books/get-books.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 
 export const routes: Routes = [
@@ -24,7 +26,9 @@ export const routes: Routes = [
     { path: 'editcover', component: EditCoverComponent },
     { path: 'createbook', component: CreateBookComponent },
     { path: 'editbook', component: EditBookComponent },
+    { path: 'getbooks', component: GetBooksComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'search', component: SearchResultComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];

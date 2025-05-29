@@ -1,10 +1,7 @@
-<h2 class="section-title">Søgeresultat:</h2>
+<h2 class="section-title">Forlagets udgivelser:</h2>
 
 <div class="book-container">
-    <div *ngIf="noResults">
-        <p>Ingen bøger fundet.</p>
-    </div>
-    <div class="book-card" *ngFor="let book of books">
+    <div *ngFor="let book of books" class="card p-3 mb-3">
         <h5>{{ book.title }} ({{ book.publishDate }})</h5>
         <hr>
         <p><b>Forfatter:</b> {{ book.authorFirstName }} {{ book.authorLastName }}</p>
@@ -17,4 +14,5 @@
             </span>
         </p>
     </div>
+
 </div>

@@ -1,6 +1,65 @@
-<main class="page-content">
+<div class="container mt-4">
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <h2>Rediger Bog</h2>
 
+    <div class="mb-3">
+        <label for="bookSelect" class="form-label">Vælg bog:</label>
+        <select id="bookSelect" class="form-select" (change)="onBookSelect($event)" [value]="book.bookId">
+            <option value="0" disabled>-- Vælg en bog --</option>
+            <option *ngFor="let b of books" [value]="b.bookId">
+                {{ b.title }} ({{ b.publishDate }})
+            </option>
+        </select>
+    </div>
 
-    <p>edit-book works!</p>
+    <div *ngIf="book.bookId !== 0" class="mt-4">
+        <form (ngSubmit)="updateBook()">
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <label for="title" class="form-label">Titel:</label>
+                    <input id="title" name="title" type="text" class="form-control" [(ngModel)]="book.title" required />
+                </div>
 
-</main>
+                <div class="col-md-3">
+                    <label for="publishDate" class="form-label">Udgivelsesår:</label>
+                    <input id="publishDate" name="publishYear" type="number" class="form-control" min="1500"
+                        max="{{currentYear}}" [(ngModel)]="book.publishDate" required />
+                </div>
+
+                <div class="col-md-3">
+                    <label for="basePrice" class="form-label">Pris:</label>
+                    <input id="basePrice" name="basePrice" type="number" step="0.01" min="0" class="form-control"
+                        [(ngModel)]="book.price" required />
+                </div>
+            </div>
+
+            <fieldset class="border p-3 mb-3">
+                <legend class="float-none w-auto px-2">Forfatter</legend>
+
+                <div class="mb-3">
+                    <label for="authorId" class="form-label">Vælg forfatter:</label>
+                    <select id="authorId" class="form-select" [(ngModel)]="book.authorId" name="authorId">
+                        <option [ngValue]="0">-- Vælg forfatter --</option>
+                        <option *ngFor="let author of authors" [ngValue]="author.id">
+                            {{ author.firstName }} {{ author.lastName }}
+                        </option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset class="border p-3 mb-3">
+                <legend class="float-none w-auto px-2">Titel</legend>
+
+                <div class="mb-3">
+                    <label for="designIdeas" class="form-label">Omslagstitel</label>
+                    <textarea id="designIdeas" name="designIdeas" class="form-control" [(ngModel)]="book.designIdeas"
+                        rows="3"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="btn btn-primary">Opdater bog</button>
+            <!-- <button (click)="deleteBook(book.bookId)"
+                class="btn btn-danger ms-2">Slet</button> -->
+        </form>
+    </div>
+</div>
