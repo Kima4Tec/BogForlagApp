@@ -1,3 +1,22 @@
-<h1>Cover</h1>
-<p>Der skal være en liste af covers. Man kan ikke rette tilknytning til bog.
-    Man kan godt tilføje kunstnere, ændre om det er digitalt eller ej og designideer.</p>
+<div class="container mt-5">
+    <h1 class="mb-4">Opdatér covertitel</h1>
+
+  <ul class="col-3 list-group mb-4">
+    <li *ngFor="let c of covers" class="list-group-item d-flex justify-content-between align-items-center">
+      {{ c.designIdeas }}
+      <button class="btn btn-sm btn-primary" (click)="editCover(c)">Rediger</button>
+    </li>
+  </ul>
+
+  <div *ngIf="coverId" class="col-3 card p-3 shadow-sm">
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="title"
+        placeholder="Opdatér Covertitel"
+      />
+    </div>
+    <button class="btn btn-success" (click)="updateCover()">Gem ændringer</button>
+  </div>
+</div>

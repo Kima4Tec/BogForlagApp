@@ -7,15 +7,16 @@
             <ul>
                 <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
                 </li>
-                <li><a routerLink="/getauthor" routerLinkActive="active">Forlagets Forfattere</a></li>
+                <li><a routerLink="/book" routerLinkActive="active">Forlagets Bøger</a></li>
                 <li class="dropdown" *ngIf="authService.isLoggedIn()">
                     <a href="#" class="dropbtn">Bog Administration</a>
                     <div class="dropdown-content">
                         <a routerLink="/createauthor">Opret Forfatter</a>
                         <a routerLink="/editauthor">Rediger Forfatter</a>
                         <a routerLink="/createartist">Opret Kunstner</a>
-                        <a routerLink="/editartist">Rediger Kunstner</a>
+                        <a routerLink="/editartist">Redigér Kunstner</a>
                         <a routerLink="/createcover">Opret Bogomslag</a>
+                        <a routerLink="/editcover">Redigér Bogomslag</a>
                         <a routerLink="/createbook">Opret Bog</a>
                         <a routerLink="/editbook">Rediger Bog</a>
                     </div>

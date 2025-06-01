@@ -62,7 +62,7 @@ export class BookService {
     return this.http.get<ViewBook[]>(`${this.apiUrl}/Book/search?query=${encodeURIComponent(query)}`);
   }
   updateBook(book: ViewBook): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}//Book/${book.bookId}`, book);
+    return this.http.put<void>(`${this.apiUrl}/Book/${book.bookId}`, book);
   }
 
 }

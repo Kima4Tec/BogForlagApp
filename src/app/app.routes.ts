@@ -26,7 +26,7 @@ export const routes: Routes = [
     { path: 'editcover', component: EditCoverComponent },
     { path: 'createbook', component: CreateBookComponent },
     { path: 'editbook', component: EditBookComponent },
-    { path: 'getbooks', component: GetBooksComponent },
+    { path: 'book', component: GetBooksComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'search', component: SearchResultComponent },

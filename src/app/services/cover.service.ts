@@ -14,6 +14,12 @@ export interface CreateCover {
   artistIds: number[];
 }
 
+export interface Cover {
+  coverId:number;
+  designIdeas: string;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,5 +30,15 @@ export class CoverService {
 
   createCover(cover: CreateCover): Observable<any> {
     return this.http.post(this.apiUrl, cover);
+  }
+
+  updateCover(id: number, cover: Cover) {
+    return this.http.put(`${this.apiUrl}/${id}`, cover)
+}
+  getCovers(): Observable<Cover[]> {
+    return this.http.get<Cover[]>(`${this.apiUrl}`);
+  }
+  getCoverById(id: number): Observable<Cover> {
+    return this.http.get<Cover>(`${this.apiUrl}/${id}`);
   }
 }

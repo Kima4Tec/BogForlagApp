@@ -6,6 +6,7 @@
         <hr>
         <p><b>Forfatter:</b> {{ book.authorFirstName }} {{ book.authorLastName }}</p>
         <p><b>Pris:</b> {{ book.price }} kr</p>
+        <div *ngIf="book.designIdeas != null">
         <p><b>Omslagstitel:</b> {{ book.designIdeas }}</p>
         <p><b>Digitalt omslag:</b> {{ book.coverIsDigital ? 'Ja' : 'Nej' }}</p>
         <p><b>Illustratorer:</b>
@@ -13,6 +14,7 @@
                 {{ artist.firstName }} {{ artist.lastName }}<span *ngIf="!last">, </span>
             </span>
         </p>
+        </div>
     </div>
 
 </div>

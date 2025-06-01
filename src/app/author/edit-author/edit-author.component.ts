@@ -30,7 +30,7 @@ export class EditAuthorComponent implements OnInit {
   }
 
   editAuthor(author: Author) {
-    this.selectedAuthor = { ...author }; // Kopi
+    this.selectedAuthor = { ...author }; //Copy
     this.editFirstName = author.firstName;
     this.editLastName = author.lastName;
     this.editErrors = {};

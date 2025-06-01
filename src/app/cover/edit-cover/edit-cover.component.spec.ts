@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EditCoverComponent } from './edit-cover.component';
 
 describe('EditCoverComponent', () => {

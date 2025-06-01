@@ -2,7 +2,7 @@
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     <h2>Rediger Bog</h2>
 
-    <div class="mb-3">
+    <div class="col-3 mb-3">
         <label for="bookSelect" class="form-label">Vælg bog:</label>
         <select id="bookSelect" class="form-select" (change)="onBookSelect($event)" [value]="book.bookId">
             <option value="0" disabled>-- Vælg en bog --</option>
@@ -47,7 +47,7 @@
                 </div>
             </fieldset>
 
-            <fieldset class="border p-3 mb-3">
+            <!-- <fieldset class="border p-3 mb-3">
                 <legend class="float-none w-auto px-2">Titel</legend>
 
                 <div class="mb-3">
@@ -55,7 +55,7 @@
                     <textarea id="designIdeas" name="designIdeas" class="form-control" [(ngModel)]="book.designIdeas"
                         rows="3"></textarea>
                 </div>
-            </fieldset>
+            </fieldset> -->
 
             <button type="submit" class="btn btn-primary">Opdater bog</button>
             <!-- <button (click)="deleteBook(book.bookId)"
