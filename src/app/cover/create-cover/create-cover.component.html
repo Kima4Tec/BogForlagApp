@@ -16,8 +16,8 @@
     <div class="mb-3">
         <label for="book">Vælg bog</label>
         <select id="book" [(ngModel)]="cover.bookid" name="bookid" class="form-control" required>
-            <option value="" disabled selected>-- Vælg bog --</option>
-            <option *ngFor="let book of books" [value]="book.bookId">
+            <option [ngValue]="null" disabled>-- Vælg bog --</option>
+            <option *ngFor="let book of books" [ngValue]="book.bookId">
                 {{ book.title }} ({{ book.publishDate }})
             </option>
         </select>

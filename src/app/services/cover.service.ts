@@ -10,12 +10,12 @@ export interface CreateArtist {
 export interface CreateCover {
   designIdeas: string;
   digitalOnly: boolean;
-  bookid: number;
+  bookid: number | null;
   artistIds: number[];
 }
 
 export interface Cover {
-  coverId:number;
+  coverId: number;
   designIdeas: string;
 }
 
@@ -34,7 +34,7 @@ export class CoverService {
 
   updateCover(id: number, cover: Cover) {
     return this.http.put(`${this.apiUrl}/${id}`, cover)
-}
+  }
   getCovers(): Observable<Cover[]> {
     return this.http.get<Cover[]>(`${this.apiUrl}`);
   }

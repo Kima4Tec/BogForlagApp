@@ -16,7 +16,7 @@ export class CreateCoverComponent implements OnInit {
   cover: CreateCover = {
     designIdeas: '',
     digitalOnly: false,
-    bookid: 0,
+    bookid: null,
     artistIds: [],
   };
 
