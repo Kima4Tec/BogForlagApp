@@ -41,4 +41,7 @@ export class CoverService {
   getCoverById(id: number): Observable<Cover> {
     return this.http.get<Cover>(`${this.apiUrl}/${id}`);
   }
+  deleteCover(id:number): Observable<Cover> {
+    return this.http.delete<Cover>(`${this.apiUrl}/${id}`);
+  }
 }
