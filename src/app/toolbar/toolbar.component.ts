@@ -12,6 +12,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './toolbar.component.css'
 })
 export class ToolbarComponent {
+  menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
   query = '';
   @Input() title: string = '';
   constructor(public authService: AuthService, private router: Router) { }

@@ -12,27 +12,28 @@ header {
     padding: 10px 20px;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: red
+    color: red;
+
 }
 
 a {
     cursor: pointer;
 }
 
-/* Brug flex på hele navigationen */
 nav {
     display: flex;
     align-items: center;
     width: 100%;
     gap: 20px;
+    justify-content: space-between;
 }
 
-/* Liste over menupunkter som flex container */
 nav ul {
     list-style: none;
     margin: 0;
@@ -42,13 +43,11 @@ nav ul {
     gap: 15px;
 }
 
-/* Menupunkter */
 nav ul li {
     position: relative;
-    /* vigtigt til dropdown */
+
 }
 
-/* Links i menuen */
 nav ul li a {
     color: rgb(162, 157, 223);
     text-decoration: none;
@@ -59,15 +58,13 @@ nav ul li a {
 nav ul li a:hover,
 nav ul li a.active {
     color: red;
-    font-weight: bold;
+
 }
 
-/* Dropdown container */
 .dropdown {
     cursor: pointer;
 }
 
-/* Dropdown-knap */
 .dropbtn {
     background-color: transparent;
     border: none;
@@ -76,12 +73,10 @@ nav ul li a.active {
     padding: 10px 15px;
 }
 
-/* Dropdown indhold (skjult som udgangspunkt) */
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
-    /* lige under dropdown-knappen */
     left: 0;
     background-color: #f9f9f9;
     min-width: 160px;
@@ -90,7 +85,6 @@ nav ul li a.active {
     border-radius: 4px;
 }
 
-/* Links i dropdown */
 .dropdown-content a {
     color: black;
     padding: 10px 12px;
@@ -98,20 +92,16 @@ nav ul li a.active {
     display: block;
 }
 
-/* Hover-effekt i dropdown */
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
-/* Vis dropdown ved hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Søgning til højre */
 .searchWrapper {
     margin-left: auto;
-    /* skub søg til højre */
     display: flex;
     gap: 8px;
     align-items: center;
@@ -131,4 +121,79 @@ nav ul li a.active {
     border-radius: 3px;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+}
+
+/* Mobil-visning */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0;
+        margin-top: 2px;
+        /* juster efter behov */
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none;
+        width: 100%;
+        padding-left: 0;
+        margin-top: 0px;
+        gap: 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        width: 100%;
+        padding: 12px 15px;
+        display: block;
+    }
+
+    .title {
+        font-size: 1rem;
+        font-weight: bold;
+        color: red
+    }
+
+    .searchWrapper {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+
+    .searchQuery {
+        padding: 4px 8px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 250px;
+        font-size: 0.8rem;
+    }
+
+    .searchButton {
+        padding: 4px 8px;
+        border: 1px solid #cac6c6;
+        border-radius: 3px;
+        font-size: 0.8rem;
+        cursor: pointer;
+    }
 }

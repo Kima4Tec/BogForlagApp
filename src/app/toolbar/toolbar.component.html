@@ -2,9 +2,13 @@
     <header>
         <nav>
             <div class="title">Forlag Semikolon</div>
-            <div class="links">
+            <div class="searchWrapper">
+                <input type="search" [(ngModel)]="query" (keyup.enter)="searchBooks()" class="searchQuery"
+                    placeholder="Søg på titel eller forfatter" />
+                <button (click)="searchBooks()" class="searchButton">Søg</button>
             </div>
-            <ul>
+            <button class="hamburger" (click)="toggleMenu()">☰</button>
+            <ul [class.show]="menuOpen">
                 <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
                 </li>
                 <li><a routerLink="/book" routerLinkActive="active">Forlagets Bøger</a></li>
@@ -31,11 +35,7 @@
                 <li><a routerLink="/login" *ngIf="!authService.isLoggedIn()" routerLinkActive="active">Admin</a></li>
             </ul>
         </nav>
-        <div class="searchWrapper">
-            <input type="search" [(ngModel)]="query" (keyup.enter)="searchBooks()" class="searchQuery"
-                placeholder="Søg på titel eller forfatter" />
-            <button (click)="searchBooks()" class="searchButton">Søg</button>
-        </div>
+
 
     </header>
 </main>

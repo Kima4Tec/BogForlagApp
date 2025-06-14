@@ -19,22 +19,20 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-
-    return !!localStorage.getItem('auth_token');
+    return !!sessionStorage.getItem('auth_token');
   }
 
-
   logout(): void {
-    localStorage.removeItem('auth_token');
+    sessionStorage.removeItem('auth_token');
   }
 
   saveToken(token: string): void {
-    localStorage.setItem('auth_token', token);
+    sessionStorage.setItem('auth_token', token);
   }
-
-
 
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/users`);
   }
+  
 }
+
