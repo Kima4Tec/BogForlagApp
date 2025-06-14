@@ -50,4 +50,15 @@ export class EditCoverComponent implements OnInit {
       error: err => console.error('Fejl ved opdatering:', err)
     });
   }
+    deleteCover(id : number) {
+    if (confirm('Er du sikker på, at du vil slette dette omslag?')) {
+      this.coverService.deleteCover(id).subscribe({
+        next: () => {
+          console.log('Omslag slettet');
+          this.loadCovers();
+        },
+        error: (err) => console.error('Fejl ved sletning:', err)
+      });
+    }
+  }
 }

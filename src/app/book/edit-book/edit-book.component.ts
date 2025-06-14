@@ -81,4 +81,17 @@ export class EditBookComponent implements OnInit {
       this.router.navigate(['/book']);
     });
   }
+    
+    deleteBook(id : number) {
+    if (confirm('Er du sikker på, at du vil slette denne bog?')) {
+      this.bookService.deleteBook(id).subscribe({
+        next: () => {
+          console.log('bog slettet');
+          this.loadBook(id);
+                this.router.navigate(['/book']);
+        },
+        error: (err) => console.error('Fejl ved sletning:', err)
+      });
+    }
+  }
 }
