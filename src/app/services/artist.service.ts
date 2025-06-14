@@ -24,8 +24,8 @@ export class ArtistService {
     return this.http.post<void>(`${this.apiUrl}/Artist`, artist);
   }
 
-  updateArtist(id: number, author: Artist) {
-    return this.http.put(`${this.apiUrl}/Artist/${id}`, author);
+  updateArtist(id: number, artist: Artist) {
+    return this.http.put(`${this.apiUrl}/Artist/${id}`, artist);
   }
 
   deleteArtist(id: number): Observable<void> {

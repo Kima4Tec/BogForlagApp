@@ -16,7 +16,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 
 
 export const routes: Routes = [
-    { path: '', component: LandingPageComponent },
+    { path: '', pathMatch: 'full', component: LandingPageComponent },
     { path: 'createauthor', component: CreateAuthorComponent },
     { path: 'editauthor', component: EditAuthorComponent },
     { path: 'getauthor', component: GetAuthorComponent },
