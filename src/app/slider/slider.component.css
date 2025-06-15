@@ -3,3 +3,52 @@
     margin-top: 2rem;
     font-size: 1.5rem;
 }
+
+    .custom-carousel {
+        width: 800px !important;
+    }
+
+    .c-img {
+        height: 400px !important;
+        object-fit: cover;
+    }
+
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .carousel-caption p {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #fff
+}
+
+/* Mobil-visning */
+@media (max-width: 768px) {
+    .section-title {
+        margin-left: 1rem;
+        font-size: 1.2rem;
+    }
+    .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+    .carousel-caption {
+        font-size: 0.8rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 0.5rem;
+    }
+}

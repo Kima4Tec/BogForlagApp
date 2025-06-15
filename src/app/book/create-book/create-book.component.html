@@ -1,9 +1,9 @@
 <form (ngSubmit)="createBook()" #bookForm="ngForm" class="container mt-4">
-    <div class="mb-3 col-4">
+                    <div class="mb-3">
         <label for="title" class="form-label">Bogtitel</label>
         <input id="title" type="text" class="form-control" [(ngModel)]="newBook.title" name="title" required />
     </div>
-    <div class="mb-3 col-4">
+                    <div class="mb-3">
         <label for="author">Forfatter: </label>
         <select class="form-control" id="author" name="authorId" [(ngModel)]="newBook.authorId" required>
             <option *ngFor="let author of authors" [value]="author.id">
@@ -11,13 +11,13 @@
             </option>
         </select>
     </div>
-    <div class="mb-3 col-4">
+                    <div class="mb-3">
         <label for="publishDate" class="form-label">Udgivelsesår</label>
         <input id="publishDate" type="number" class="form-control" [(ngModel)]="newBook.publishDate" name="publishDate"
             [max]="currentYear" min="1000" step="1" required />
     </div>
 
-    <div class="mb-3 col-4">
+                    <div class="mb-3">
         <label for="price" class="form-label">Basispris</label>
         <input id="price" type="number" class="form-control" [(ngModel)]="newBook.price" name="price" min="0" step="5"
             required />

@@ -1,13 +1,28 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideHttpClient()
+    provideHttpClient(
+      withInterceptors([
+        (req, next) => {
+          const token = sessionStorage.getItem('auth_token');
+          if (token) {
+            const cloned = req.clone({
+              setHeaders: {
+                Authorization: `Bearer ${token}`
+              }
+            });
+            return next(cloned);
+          }
+          return next(req);
+        }
+      ])
+    )
   ]
 })
-  .catch(err => console.error(err));
+.catch(err => console.error(err));

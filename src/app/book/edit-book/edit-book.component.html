@@ -2,7 +2,7 @@
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     <h2>Rediger Bog</h2>
 
-    <div class="col-3 mb-3">
+                    <div class="mb-3">
         <label for="bookSelect" class="form-label">Vælg bog:</label>
         <select id="bookSelect" class="form-select" (change)="onBookSelect($event)" [value]="book.bookId">
             <option value="0" disabled>-- Vælg en bog --</option>

@@ -23,10 +23,14 @@ export class LoginComponent {
         next: (response) => {
           this.message = 'Login succesfuldt!';
 
-          // Gem tokenet i localStorage
+          // save token in session storage
+          if (!response.token) {
+            this.message = 'Ingen token modtaget ved login.';
+            return;
+          }
           this.authService.saveToken(response.token);
 
-          // Omdiriger brugeren til en beskyttet rute
+          // Redirect user to a protected route
           this.router.navigate(['/createauthor']);
         },
         error: (error) => {

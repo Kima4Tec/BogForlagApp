@@ -19,6 +19,7 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     color: red;
+    text-decoration: none;
 
 }
 
@@ -27,11 +28,13 @@ a {
 }
 
 nav {
-    display: flex;
+    display: relative;
+    margin-top: -47px;
     align-items: center;
     width: 100%;
     gap: 20px;
     justify-content: space-between;
+        background-color: rgb(55, 53, 77);
 }
 
 nav ul {
@@ -51,7 +54,7 @@ nav ul li {
 nav ul li a {
     color: rgb(162, 157, 223);
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 20px 20px 10px;
     display: inline-block;
 }
 
@@ -107,7 +110,12 @@ nav ul li a.active {
 
 /* Søgning til højre */
 .searchWrapper {
-    margin-left: auto;
+    display: absolute;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left:  auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
     display: flex;
     gap: 8px;
     align-items: center;
@@ -135,10 +143,17 @@ nav ul li a.active {
 
 /* Mobil-visning */
 @media (max-width: 768px) {
+    header {
+    box-shadow: 0 2px 4px rgba(55, 53, 77);
+    }
     nav {
         flex-direction: column;
         align-items: flex-start;
-    }
+            margin-top: 0px;
+        padding: 0px;
+        background-color: rgb(55, 53, 60);
+
+}
 
     .hamburger {
         display: block;
@@ -148,8 +163,7 @@ nav ul li a.active {
         color: white;
         cursor: pointer;
         padding: 0;
-        margin-top: 2px;
-        /* juster efter behov */
+        margin-top: 0px;
     }
 
     nav ul {
@@ -163,6 +177,7 @@ nav ul li a.active {
 
     nav ul.show {
         display: flex;
+        padding: 15px 10px 10px 10px;
     }
 
     nav ul li {
@@ -170,21 +185,24 @@ nav ul li a.active {
     }
 
     nav ul li a {
+        margin-top: 5px;
         width: 100%;
-        padding: 12px 15px;
+        padding: 4px 10px;
         display: block;
+        line-height: normal;
     }
 
     .title {
-        font-size: 1rem;
+        font-size: 1.4rem;
         font-weight: bold;
         color: red
     }
 
     .searchWrapper {
         width: 100%;
-        margin-top: 10px;
         justify-content: flex-start;
+        margin-top: 0px;
+        margin-left: 40px;
     }
 
     .searchQuery {

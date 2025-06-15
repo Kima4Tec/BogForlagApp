@@ -13,22 +13,23 @@ import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { GetAuthorComponent } from './author/get-author/get-author.component';
 import { GetBooksComponent } from './book/get-books/get-books.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', component: LandingPageComponent },
-    { path: 'createauthor', component: CreateAuthorComponent },
-    { path: 'editauthor', component: EditAuthorComponent },
-    { path: 'getauthor', component: GetAuthorComponent },
-    { path: 'createartist', component: CreateArtistComponent },
+    { path: 'createauthor', component: CreateAuthorComponent, canActivate: [AuthGuard]   },
+    { path: 'editauthor', component: EditAuthorComponent, canActivate: [AuthGuard]   },
+    { path: 'getauthor', component: GetAuthorComponent, canActivate: [AuthGuard]  },
+    { path: 'createartist', component: CreateArtistComponent, canActivate: [AuthGuard]   },
     { path: 'editartist', component: EditArtistComponent },
-    { path: 'createcover', component: CreateCoverComponent },
-    { path: 'editcover', component: EditCoverComponent },
-    { path: 'createbook', component: CreateBookComponent },
-    { path: 'editbook', component: EditBookComponent },
+    { path: 'createcover', component: CreateCoverComponent, canActivate: [AuthGuard]   },
+    { path: 'editcover', component: EditCoverComponent, canActivate: [AuthGuard]   },
+    { path: 'createbook', component: CreateBookComponent, canActivate: [AuthGuard]   },
+    { path: 'editbook', component: EditBookComponent, canActivate: [AuthGuard]   },
     { path: 'book', component: GetBooksComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'register', component: RegisterComponent, canActivate: [AuthGuard]  },
     { path: 'search', component: SearchResultComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];

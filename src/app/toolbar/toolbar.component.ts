@@ -24,7 +24,7 @@ toggleMenu() {
     this.authService.logout();
     this.router.navigate(['/']);
   }
-
+  
   searchBooks() {
     if (this.query.trim()) {
       this.router.navigate(['/search'], { queryParams: { q: this.query } });

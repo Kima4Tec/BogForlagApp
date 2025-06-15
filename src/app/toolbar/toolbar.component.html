@@ -1,19 +1,20 @@
 <main class="toolbar">
     <header>
-        <nav>
-            <div class="title">Forlag Semikolon</div>
-            <div class="searchWrapper">
-                <input type="search" [(ngModel)]="query" (keyup.enter)="searchBooks()" class="searchQuery"
-                    placeholder="Søg på titel eller forfatter" />
-                <button (click)="searchBooks()" class="searchButton">Søg</button>
-            </div>
-            <button class="hamburger" (click)="toggleMenu()">☰</button>
-            <ul [class.show]="menuOpen">
-                <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-                </li>
+        <a class="title" routerLink="/">Forlag Semikolon</a><button class="hamburger" (click)="toggleMenu()">☰ </button>
+    </header>
+    <nav>
+        
+        <ul [class.show]="menuOpen">
+                <div class="searchWrapper">
+                    <input type="search" [(ngModel)]="query" (keyup.enter)="searchBooks()" class="searchQuery"
+                        placeholder="Søg på titel eller forfatter" />
+                    <button (click)="searchBooks()" class="searchButton">Søg</button>
+                </div>
+                <!-- <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                </li> -->
                 <li><a routerLink="/book" routerLinkActive="active">Forlagets Bøger</a></li>
                 <li class="dropdown" *ngIf="authService.isLoggedIn()">
-                    <a href="#" class="dropbtn">Bog Administration</a>
+                    <a routerLink="/book" class="dropbtn">Bog Administration</a>
                     <div class="dropdown-content">
                         <a routerLink="/createauthor">Opret Forfatter</a>
                         <a routerLink="/editauthor">Rediger Forfatter</a>
@@ -26,7 +27,7 @@
                     </div>
                 </li>
                 <li class="dropdown" *ngIf="authService.isLoggedIn()">
-                    <a href="#" class="dropbtn">Administration</a>
+                    <a routerLink="/"class="dropbtn">Administration</a>
                     <div class="dropdown-content">
                         <a routerLink="/register">Ny bruger</a>
                     </div>
@@ -35,7 +36,4 @@
                 <li><a routerLink="/login" *ngIf="!authService.isLoggedIn()" routerLinkActive="active">Admin</a></li>
             </ul>
         </nav>
-
-
-    </header>
 </main>
