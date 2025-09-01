@@ -30,6 +30,7 @@ export const routes: Routes = [
     { path: 'book', component: GetBooksComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent, canActivate: [AuthGuard]  },
+      // { path: 'register', component: RegisterComponent },
     { path: 'search', component: SearchResultComponent },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
